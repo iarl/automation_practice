@@ -25,13 +25,13 @@ class MedicalCardTransition(unittest.TestCase):
             .enter_password(password="password")\
             .click_submit_button()
         assert self.my_account_page.header_user_info_text() == "Auto Test"
-        self.my_account_page.click_on_sign_out_button()
 
     @data(('automation@acemail.info', ''),
           ('automation@acemail.info', ' '))
     @unpack
     def test_login_without_password(self, login, password):
-        self.home_page.open() \
+        self.home_page.clear_cookies()\
+            .open()\
             .click_on_sign_in_button()
         self.login_page.enter_login(login=login) \
             .enter_password(password=password) \

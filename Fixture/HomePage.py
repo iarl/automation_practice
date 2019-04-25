@@ -13,3 +13,8 @@ class HomePage(BasePage):
         self._click_on_element(self._sign_in_button_locator)
         return self
 
+    def clear_cookies(self):
+        self._delete_cookies()
+        return self
+
+

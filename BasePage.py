@@ -12,9 +12,6 @@ class BasePage:
     def _go_to_link(self, url):
         self.driver.get(url)
 
-    def _get_current_url(self):
-        return self.driver.current_url
-
     def _click_on_element(self, element_locator):
         self.driver.find_element_by_xpath(element_locator).click()
 
@@ -24,18 +21,10 @@ class BasePage:
         element.clear()
         element.send_keys(text)
 
-    def _press_enter_key(self, element_locator):
-        element = self.driver.find_element_by_xpath(element_locator)
-        element.send_keys(Keys.ENTER)
-
     def _get_element_text(self, element_locator):
         element = self.driver.find_element_by_xpath(element_locator)
         return element.text
 
-    def _element_is_displayed(self, element_locator):
-        try:
-            self.driver.find_element_by_xpath(element_locator)
-            return True
-        except NoSuchElementException:
-            return False
+    def _delete_cookies(self):
+        self.driver.delete_all_cookies()
 
