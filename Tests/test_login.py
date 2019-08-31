@@ -9,7 +9,7 @@ from ddt import ddt,data,unpack
 
 @pytest.mark.usefixtures('store')
 @ddt
-class MedicalCardTransition(unittest.TestCase):
+class LoginPage(unittest.TestCase):
 
     @pytest.fixture(autouse=True)
     def object_setup(self, store):
